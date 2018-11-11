@@ -1,0 +1,6 @@
+Short notes about all the services
+
+----------------------------------------------------
+notify called handlers section.
+Advantage: If change is happen on notify task then only called the handlers function otherwise it won't called the handlers function.
+--------------------------------------------------------
