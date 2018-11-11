@@ -1,0 +1,7 @@
+In order to allow a root SSH login on Ubuntu 14.01 Linux server/desktop the sshd daemon's config file /etc/ssh/sshd_config needs to be changed. Open /etc/ssh/sshd_config and make a following changes to the line specified below:
+FROM:
+PermitRootLogin without-password
+TO:
+PermitRootLogin yes
+Once you have made the change, restart the SSHD service for those changes to take affect:
+# service ssh restart
