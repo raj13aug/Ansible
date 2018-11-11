@@ -4,6 +4,31 @@ perform the installation of all prerequisites:
 
 $ sudo apt install make git make python-setuptools gcc python-dev libffi-dev libssl-dev python-packaging
 
+
+--------------------------------------------------------------------------------------------
+Note: If you getting error while install the python-packaging then follow the below steps
+
+You have to enable universe category which contains python-pip package.
+
+Open /etc/apt/sources.list using an editor, for example nano:
+
+sudo nano /etc/apt/sources.list
+then add  universe at the end of each line, like this:
+
+deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+Press Ctrl+O to save the file.
+
+then run:
+
+sudo apt update
+and finally:
+
+sudo apt install python-pip
+-------------------------------------------------------------------------------
+
+
 Next, download Ansible source code using the git command:
 $ git clone git://github.com/ansible/ansible.git
 
@@ -11,4 +36,4 @@ Navigate to the ansible directory:
 $ cd ansible
 
 This step is optional as it only allows you to select the desired Ansible version to be installed on your system. The following linux command will list all available Ansible versions:
-$  git branch -a 
+$  git branch -a
