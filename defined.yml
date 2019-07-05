@@ -15,3 +15,6 @@
 
   # refer by https://www.middlewareinventory.com/blog/ansible-when-variable-is-defined-or-undefined-examples/
   #ansible-playbook defined.yml -e "Directory=/var/tmp/"  -e "SearchString=*.txt"
+  - name:
+    debug: var=case1output.stdout
+    when: case1output.stdout is undefined

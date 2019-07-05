@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks:
+  - name: testing
+    shell: pwd
+    when: "('/root/ansible/network.yml')|is_file"
