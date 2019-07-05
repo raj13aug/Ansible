@@ -14,3 +14,4 @@
     when: Directory is defined and SearchString is defined and mtime is not defined
 
   # refer by https://www.middlewareinventory.com/blog/ansible-when-variable-is-defined-or-undefined-examples/
+  #ansible-playbook defined.yml -e "Directory=/var/tmp/"  -e "SearchString=*.txt"
