@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+    #case1 : search the string and modified time is mentinoed
+  - name: Find command with search string and modified time
+    shell: "find {{Directory}} -name '{{SearchString}}'-mtime '{{mtime}}'"
+    register: case1output
+    when: Directory is defined and SearchString is defined and mtime is defined
+    #
+   # Case2: when Only Search String is mentioend but NOT Modified time(age)
+  - name: Find command with search string and modified time
+    shell: "find {{Directory}} -name '{{SearchString}}'"
+    register: case2output
+    when: Directory is defined and SearchString is defined and mtime is not defined
