@@ -1,0 +1,24 @@
+- name: Ensure wrong credentials are unauthorized
+  uri:
+    url: http://192.168.195.210/app
+    user: Admin
+    password: "not the admin password"
+    force_basic_auth: yes
+    status_code: 401
+
+- name: Ensure admin can log in
+  uri:
+    url: http://192.168.195.210/app
+    user: Admin
+    password: "{{vault_admin_password}}"
+    force_basic_auth: yes
+    return_content: yes
+  register: login
+
+- name: Ensure user is properly greeted when logged in
+  assert:
+    that:
+    - "'Welcome Admin' in login.content"
+    
+    
+    https://stackoverflow.com/questions/46197689/ansible-url-login-check-with-some-test
