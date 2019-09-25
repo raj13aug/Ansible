@@ -20,5 +20,7 @@
     that:
     - "'Welcome Admin' in login.content"
     
+    Reference
     
     https://stackoverflow.com/questions/46197689/ansible-url-login-check-with-some-test
+    https://docs.ansible.com/ansible/latest/modules/assert_module.html?highlight=assert
