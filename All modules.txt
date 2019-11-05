@@ -18,3 +18,12 @@ Reference URl : https://www.pandastrike.com/posts/20160308-ansible-blocks-exampl
 Reference URL: https://www.middlewareinventory.com/blog/ansible-changed_when-and-failed_when-examples/
 
 --------------------------------------------
+
+no_log: true  -->to censor log output
+
+-------------------------------------------
+
+ansible-playbook valut-example.yml --vault-id prod@prompt --> prompt password while excused the playbook.
+ansible-playbook valut-example.yml --vault-id prod@pass   --> passing password on the file itself. pass refer with text file it contain the pass. prod is use of label propose. 
+
+----------------
