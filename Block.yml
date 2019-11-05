@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - block:
+        - yum: name=httpd state=installed
+        - service: name=httpd state=started enabled=yes
+      when: ansible_os_family == 'RedHat'
+
+    - block:
+        - apt: name=apache2 state=installed
+        - service: name=apache2 state=started enabled=yes
+      when: ansible_os_family == 'Debian'

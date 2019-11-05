@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: "Determine if the apache2 is installed"
+      register: validateapache2
+      shell: apache2
+    -  name: Ensure Apache is at the latest version
+       become: yes
+       apt:
+         name: validateapache2
+         state: latest
+       when:  'not found' in validateapache2

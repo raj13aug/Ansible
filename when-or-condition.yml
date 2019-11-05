@@ -1,0 +1,9 @@
+---
+#when condition
+#If our requirement is just to validate, If the OS distribution is CentOS and version is 6
+- hosts : localhost
+  become: yes
+  tasks:
+    - name: "check the debain flavored systems"
+      command: date
+      when: ansible_distribution == 'Ubuntu' or  ansible_distribution_major_version  == '8'

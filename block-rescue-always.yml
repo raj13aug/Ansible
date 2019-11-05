@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: true
+  tasks:
+    - block:
+        - name: shell script to app
+          script: kk.sh
+      rescue:
+        - name: this will only run in case of an error in the block
+          debug: msg="There  was an error  in the block"
+      always:
+        - name: This will always run
+          debug: msg="This always executed"

@@ -1,0 +1,5 @@
+- Inventory file are in the .ini file format.
+- playbook/hosts file to put below line
+
+[Webserver]
+testsever ansible_host=127.0.0.1 ansible=2222

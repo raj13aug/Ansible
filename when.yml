@@ -1,0 +1,9 @@
+---
+#when condition
+- hosts : localhost
+  become: yes
+  tasks:
+    - name: "check the debain flavored systems"
+      command: date
+      when: ansible_distribution == 'Ubuntu'
+

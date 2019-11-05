@@ -1,0 +1,7 @@
+---
+- hosts: all
+
+tasks:
+  - name: Install Apache
+    command: >
+      yum install -y httpd

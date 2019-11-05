@@ -1,0 +1,20 @@
+All modules 
+---------------------------------------------------------------------------------------------
+1. Block: 
+
+Blocks allow you to group related tasks together and apply particular task parameters on the block level. They also allow you to handle errors inside the blocks in a way similar to most programming languages' exception handling.
+
+Tasks inside the block will be run first. If there is a failure in any task in block, tasks inside rescue will be run. The tasks inside always will always be run, whether or not there were failures in either block or rescue
+
+example: Block.yml and block-rescue-always.yml
+
+Reference URl : https://www.pandastrike.com/posts/20160308-ansible-blocks-examples/
+-----------------------------------------------------------------------------------------------------------
+
+2. failed_when
+
+
+
+Reference URL: https://www.middlewareinventory.com/blog/ansible-changed_when-and-failed_when-examples/
+
+--------------------------------------------

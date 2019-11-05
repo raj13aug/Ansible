@@ -1,0 +1,47 @@
+Ansible playbooks are written in YAML.
+
+Important concepts
+
+1. Start of file 
+
+--- 
+
+Three dashes to indicate the beginning of the playbook.if you forget to put those three dashes at the top of your playbook, Ansible won't complain.
+
+2. comments
+
+# This is a yaml comments
+
+3. stings
+
+you can quote them if you prefer.
+
+'this is sentence'
+
+4. Booleans
+
+Why do you use true in one place and yes in another?
+
+True and false values in playbooks, module argments(for example, udate_cache=yes)
+Are treated differently from value elsewhere in playbook ( for example sudo: true)
+
+5. lists
+
+YAML lists are like arrays in python also called sequences in YAML.
+
+ - mMy Lady
+ - Ok
+ - Pirate
+ 
+6. Dictionaries
+
+These are called mappings in YAML
+
+address: 24/7
+city: banglore
+
+7. Line folding
+
+address: > 
+        76 v.o.c street
+		chidambaram
