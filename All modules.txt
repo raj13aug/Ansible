@@ -18,3 +18,7 @@ Reference URl : https://www.pandastrike.com/posts/20160308-ansible-blocks-exampl
 Reference URL: https://www.middlewareinventory.com/blog/ansible-changed_when-and-failed_when-examples/
 
 --------------------------------------------
+
+no_log: true  -->to censor log output
+
+-------------------------------------------
