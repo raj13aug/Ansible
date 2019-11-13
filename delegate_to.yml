@@ -1,0 +1,10 @@
+- name: enable alerts for web server
+  hosts: web
+  tasks:
+    - name: enable alerts
+      nagios: action=enable_alerts service=web hosts= {{ inventory_hostname }}
+      delegate_to: nagios.example.com
+      
+   ###################################
+   
+   By delegation is running a task on specific hosts. The tasl will only run on the host or group to which it was delegated.
