@@ -1,0 +1,21 @@
+PAGE NO :152 
+
+lookups allow you to read in configuration data from various sources and then use that data in your playbooks and templete.
+
+Lookup
+
+1.file
+2. piple
+3.env
+4.password
+5.template
+6.cvsfile
+
+For example
+
+env
+
+- name: get the current shell
+  debug: msg="{{ lookup('env', 'SHELL') }}"
+  
+  
