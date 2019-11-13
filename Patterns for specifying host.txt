@@ -1,0 +1,11 @@
+hosts: web # run on specified single host.
+hosts: all # run on all know hosts
+hosts: dev:staging # run on union of two group 
+hosts: staging:&database # run on all database server in your staging env.
+hosts: dev:!queue 
+hosts: *.example.com
+hosts: web[5:10]
+
+Ansible support mutiple combination of pattern
+
+hosts: dev:statging:&database:!queue
