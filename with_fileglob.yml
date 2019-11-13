@@ -1,0 +1,13 @@
+- hosts: blocks
+  tasks:
+  - name: Ansible copy multiple files with wildcard matching.
+    copy:
+      src: "{{ item }}"
+      dest: /etc
+    with_fileglob:
+      - /tmp/hello*
+      
+      
+  If you need to copy all the files in a directory that matches a wildcard character, then you can use with_fileglob.
+
+In the following example, all files that start with ‘hello’ in the /tmp directory of the local machine is copied to the remote server.
