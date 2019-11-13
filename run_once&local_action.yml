@@ -1,0 +1,21 @@
+--- # Run Once Example
+- hosts: centos
+  tasks:
+    - name: Run the database migrations
+      command:  /opt/run_migrations
+      run_once: true
+###########################################3
+
+you might want a task to run only once, even if there are mutiple hosts.
+
+for example, perhaps u have mutiple application servers running behined the load balancer and you want to run the migration on only one application server.
+
+###################################
+
+- name: run the task locally, only once
+  local_action: command /opt/my-custom-command
+  run_once: true
+
+#####################################3
+
+local_action if you playbook involves mutiples hosts and you want to run the local task only once.
