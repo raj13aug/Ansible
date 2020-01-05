@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  become: yes 
+  tasks: 
+    - name: install software
+      yum:
+       name: "{{ item }}"
+       state: absent 
+      loop:
+        - elinks 
+        - zip 
+
+---------------------------------------------------
+The loop keyword may be used to express a repeated action more concisely.
+loop may also operate with a list variable
+It also possible to combine loop and conditionals.
+
+Note: It replacement of iteam_with module.
+------------------------------------------------------------
