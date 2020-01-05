@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  become: yes 
+  vars_files: 
+    - vars.yml
+  tasks:
+    - name: check the services  
+      service: 
+        name: "{{ item }}""
+        state: started
+      loop: "{{ service_list }}"
+
+
+
+--------------------------------------
+
+cat vars.yml
+service_list:
+- httpd 
+- nfs 
+- mariadb 
+
