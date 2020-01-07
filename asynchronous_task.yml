@@ -10,4 +10,4 @@
 #################################
 1. It prevent interruption from ssh timeouts for long running operations.
 2. A poll value for how oftern ansible should check back.
-3. A poll value of 0 will have ansible not check back on a back.
+3. A poll value of 0 will hava ansible not check back on task.
