@@ -1,0 +1,16 @@
+---
+- hosts: all
+  vars:
+    target_file: /home/anisble/hostname
+  tasks:
+    - name:gather file information
+      stat:
+        path: "{{ target_file }}"
+      register: hostname
+    - name: Rename hostname when found
+      command: mv "{{ target_file }}" /home/ansible/net-info
+      when: hostname.stat.exists
+      
+      
+  #Retrieves facts for a file similar to the Linux.
+  #first check if the rules file exists:
