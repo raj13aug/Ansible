@@ -1,4 +1,5 @@
 mysql_user_host_prod: rds.amazonaws.com
+mysql_user_host_qa: rds.amazonaws.com
 
 
    - name: Set {{ host_environment }} environment vault variables
