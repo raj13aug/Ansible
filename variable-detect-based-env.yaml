@@ -1,8 +1,8 @@
-mysql_piwik_user_host_prod: rds.amazonaws.com
+mysql_user_host_prod: rds.amazonaws.com
 
 
    - name: Set {{ host_environment }} environment vault variables
       set_fact:
         "{{ item }}": "{{ vars['vault_' ~ item ~ '_' ~ host_environment] }}"
       with_items:
-        - 'mysql_piwik_user_host'
+        - 'mysql_user_host'
