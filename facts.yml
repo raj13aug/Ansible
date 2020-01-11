@@ -8,3 +8,7 @@ You can use jsonfile or redis also.It maintain the data for persistent type. so 
 hostvars --> magic variable groups 
 
 It is possible to use {{ anisble_facts }} for conditional plays based on facts.
+
+line: "{{ hostvars['localhost']['ansible_default_ipv4']['address'] }}"
+
+To get information on localhost and find related value of ansible_default_ipv4.
