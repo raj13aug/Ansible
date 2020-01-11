@@ -1,0 +1,10 @@
+Ansible facts are simply various properties regarding a given remote system.
+
+#ansible -i iv remote -m setup -a filter=*ipv4*
+
+By default, fact cashing a set to memory.
+You can use jsonfile or redis also.It maintain the data for persistent type. so this approche suitable for high enviroment.
+
+hostvars --> magic variable groups 
+
+It is possible to use {{ anisble_facts }} for conditional plays based on facts.
