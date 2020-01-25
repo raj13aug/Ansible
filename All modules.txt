@@ -27,3 +27,7 @@ ansible-playbook valut-example.yml --vault-id prod@prompt --> prompt password wh
 ansible-playbook valut-example.yml --vault-id prod@pass   --> passing password on the file itself. pass refer with text file it contain the pass. prod is use of label propose. 
 
 ----------------
+
+expect – Executes a command and responds to prompts
+
+-----------------------------------------
