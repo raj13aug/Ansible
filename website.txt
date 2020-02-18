@@ -1,1 +1,2 @@
 https://www.mydailytutorials.com/category/tutorials/ansible/
+https://docs.ansible.com/ansible/devel/user_guide/playbooks_filters.html#set-theory-filters
