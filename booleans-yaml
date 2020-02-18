@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  vars:
+    truestringvar: "true"
+    falsestringvar: "false"
+    trueboolvar: true
+    falseboolvar: false
+
+  tasks:
+    - debug:
+        msg: Since booleans matter, this message is not shown.
+      when: trueboolvar == 'true'
+    - debug:
+        msg: boolean values DO matter (this string is shown)
+      when: trueboolvar
+    - debug:
+        msg: The string that says false is not false, this message will not be shown
+      when: not falsestringvar
