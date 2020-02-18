@@ -1,0 +1,9 @@
+- hosts: host1:host2
+    tasks:
+      - package_facts:
+      - debug:
+          msg: "{{ hostvars.host1.ansible_facts.packages|
+                   difference(hostvars.host2.ansible_facts.packages) }}"
+        run_once: true
+
+https://docs.ansible.com/ansible/latest/modules/package_facts_module.html#package-facts-package-information-as-facts
