@@ -1,0 +1,74 @@
+Split commands are useful when you need to divide a large line or a block of lines into a list. The dividing character will be specified in the command itself. So we can split when every ‘space’ character occurs, semicolon appears, a digit occurs etc.
+
+Join command is useful when you want values in a list or dictionary to be joined or concatenated together. You can specify the joining character also.
+
+Split Lines in Ansible
+You can use the ‘split()’ function to divide a line into smaller parts. The output will be a list or dictionary. This is a Python function and not a Jinja2 filter.
+
+For example, in the below example, I am splitting the variable ‘split_value’ whenever a space character is seen. The default split character is ‘space’.  So I am not giving any argument for the same. It is similar to the python split operation.
+
+- hosts: all
+  vars:
+    test: "This single line should be split based on white space"
+  tasks:
+  - debug:
+      msg: "{{ test.split() }}"
+
+output
+------
+ok: [localhost] => {
+    "msg": [
+        "This", 
+        "single", 
+        "line", 
+        "should", 
+        "be", 
+        "split", 
+        "based", 
+        "on", 
+        "white", 
+        "space"
+    ]
+}
+If you need to split based on any other characters, you can input that in the split command.
+
+In the below example, I am splitting an IPv4 address based on the character ‘.’. As you can see the output contains 4 values in the list.
+
+ 
+
+- hosts: all
+  vars:
+    ip: "192.168.14.21"
+  tasks:
+  - debug:
+      msg: "{{ ip.split('.') }}"
+
+output
+------
+    "msg": [
+        "192", 
+        "168", 
+        "14", 
+        "21"
+    ]
+
+Joining multiple strings in Ansible
+Jinja2 provides a filter for this purpose. It will return a string which is the result of concatenating all the string in the list.
+
+For example, to join 4 values in the previous example, you can do the following.
+
+- hosts: all
+  vars:
+    test: ['192','168','14','21']
+  tasks:
+  - debug:
+      msg: "{{ test | join('.') }}"
+
+output
+------
+ok: [localhost] => {
+    "msg": "192.168.14.21"
+}
+
+
+https://www.mydailytutorials.com/how-to-split-strings-and-join-them-in-a%E2%80%8Bnsibl%E2%80%8Be/
