@@ -1,0 +1,119 @@
+There are multiple ways in which you can replace a particular word, a line, all the words matching a specific pattern etc. in Ansible. Depending on the situation we can use the Ansible ‘replace’ module or ‘lineinfile’ module. In this post, we will see some examples of how to use these modules to get the desired output.
+
+Replace all instances of a string
+We can easily replace a word with another word using the Ansible ‘replace’ module.
+
+In case the word does not exist in the file then no error will be thrown. It will just return the status as not changed.
+
+For the task, you will need to have three parameters.
+
+‘path’ – You have to give the location of the file here.
+‘regexp’ – This is the string which you need to get changed. You can also give any python regular expressions.
+‘replace’ –  This is where you can give the replacement word. This parameter is not used if you just want to remove a word.
+In the following example, I am trying to replace all the ‘hello’ strings to ‘world’. Note that it is a case-sensitive operation. So it won’t change ‘Hello'(with capital H).
+
+The task will scan through the entire file and make the desired changes.
+
+Input.txt
+---------
+Hello how are you
+hello1 case change
+hey hello there
+
+Code
+------
+- hosts: all
+  tasks:
+  - name: Ansible replace string example
+    replace:
+      path: /Users/mdtutorials2/Documents/Ansible/intext.txt
+      regexp: 'hello'
+      replace: "world"
+
+output
+------
+Hello how are you
+world1 case change
+hey world there
+As you can see, the code changed all instances of the ‘hello’ with ‘world’.
+
+Note:
+
+# Before 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
+
+If you need to do a case-insensitive search then you can do something like below.  The ‘?i’ means it is a case sensitive replace.
+
+regexp: '(?i)hello'
+Replace all instances of multiple strings with the same variable
+Now, I am not getting an instance when you will need this. But in case you want different words to be replaced with the same variable that is also possible. You can use the ‘with_items’ statement for this.
+
+The below task will scan throw the entire file and replace all instances of cat, tiger and lion and then convert it to the string ‘dog’.
+
+input
+------
+cat
+dog
+tiger
+lion
+apple
+
+code
+------
+- hosts: all
+  tasks:
+  - name: Ansible replace multiple words example
+    replace:
+      path: /Users/mdtutorials2/Documents/Ansible/intext.txt
+      regexp: "{{ item }}"
+      replace: "dog"
+    with_items:
+    - 'cat'
+    - 'tiger'
+    - 'lion'
+
+output
+-------
+dog
+dog
+dog
+dog
+apple
+Multiple replacement tasks in one task using with_items.
+Suppose you have multiple replacement tasks. You don’t need separate functions for each one of them. You can use the with_items statement to do it in a single go.
+
+You need to give dictionaries in the with_items like shown in the below example. You need to specify the ‘path’, ‘regexp’ and ‘replace’ parameters for each substitution in the loop dictionaries. The key in the dictionaries can be anything( check the regexp1 given in the below task)
+
+– hosts: all
+
+  tasks:
+  - name: Ansible multiple replace example
+    replace:
+      path: "{{ item.path }}"
+      regexp: "{{ item.regexp1 }}"
+      replace: "{{ item.replace }}"
+    with_items:
+      - { path: '/Users/mdtutorials2/Documents/Ansible/intext.txt', regexp1: 'cat', replace: 'dog'}
+      - { path: '/Users/mdtutorials2/Documents/Ansible/intext2.txt', regexp1: 'orange', replace: 'apple'}
+Removing a particular string
+Also, you can remove a specific string by not setting the ‘replace’ parameter. This will just remove the string.
+
+In the below task, all the string ‘dogs’ will be removed. If a line contains only that word, then line itself is removed.
+
+input
+------
+hello dog world
+dog
+cat
+
+- hosts: all
+  tasks:
+  - name: Ansible remove words example
+    replace:
+      path: "/Users/mdtutorials2/Documents/Ansible/intext.txt"
+      regexp: "dog"
+
+output
+------
+hello  world
+cat
+ 
