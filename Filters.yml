@@ -1,0 +1,3 @@
+ "Host" : "{{ database_host | default('localhost"}}"
+ 
+ if the variable datavases_host is defined, evaluate to the value of that variable. if doesn't defined take localhost value.
