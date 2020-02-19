@@ -1,0 +1,14 @@
+
+basename --> Base name of the file path
+dirname --> Directory of the file path
+expand user --> file path with ~ replaced by home directory
+realpath  --> canonical path of file path, resolve symbolic links
+
+
+# Basename filter will let us extract the index.html part of the filename from the full path, allowing us to write the playbook without repeating the filename.
+
+vars: 
+  homepage: /usr/share/nginx/html/index.html
+tasks:
+  - name: copy home page
+    copy: src=files/{{homepage | basename }} dest={{ homepage }}
