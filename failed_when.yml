@@ -1,0 +1,21 @@
+# we want to run a task and print out it output, even if the task fails also stop running the playbook if failed.
+
+
+- name: Run myprog
+  command: /opt/myprog
+  register: result
+  ignore_error: True
+  
+ - debug: var=result
+ 
+ - debug: msg= "Stop running the playbook if myprog failed"
+   failed_when: result|failed
+   
+   
+   value of filters:
+   
+   failed
+   changed
+   success
+   skipped
+   
