@@ -1,0 +1,36 @@
+During Ansible playbook debugging it is useful to know how to display host facts or registered variables.
+
+To print a message from Ansible playbook, as well as a value of a variable, we can use Ansible debug module.
+
+In the examples below i am showing how to print particular Ansible variables and how to list all known facts and variables from Ansible playbook.
+
+
+Debug Ansible Playbook by Printing Variables
+Print a variable:
+
+- name: "Ansible | Print a variable"
+  debug:
+    msg: "The operating system is {{ ansible_distribution }}"
+Display a variable only if it is defined:
+
+- name: "Ansible | Print a variable if defined"
+  debug:
+    msg: "The 'foo' variable value is {{ foo }}"
+  when: foo is defined
+
+- name: "Ansible | Print a message if a variable is undefined"
+  debug:
+    msg: "The 'bar' variable is undefined"
+  when: bar is not defined
+Print multiple variable:
+
+- name: "Ansible | Print multiple variable"
+  debug:
+    msg: |
+      The role is {{ host_role }}
+      The environment is {{ host_environment }}
+List all known variables and facts:
+
+- name: "Ansible | List all known variables and facts"
+  debug:
+    var: hostvars[inventory_hostname]
