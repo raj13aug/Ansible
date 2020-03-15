@@ -31,3 +31,17 @@ ansible-playbook valut-example.yml --vault-id prod@pass   --> passing password o
 expect – Executes a command and responds to prompts
 
 -----------------------------------------
+
+Short notes about all the services
+
+----------------------------------------------------
+notify called handlers section.
+Advantage: If change is happen on notify task then only called the handlers function otherwise it won't called the handlers function.
+--------------------------------------------------------
+
+Lookup plugins
+
+Lookup plugins are designed to read data from different sources and feed them to Ansible. The data source can be either from the local filesystem on the controller node or from an external data source. 
+
+
+
