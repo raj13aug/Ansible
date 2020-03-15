@@ -1,7 +1,7 @@
 
 
 # The data read from the file can then be fed to the Ansible playbook as a variable.
-
+# ref : https://hub.packtpub.com/depth-look-ansible-plugins/
 ---
 - hosts: localhost
   vars:
