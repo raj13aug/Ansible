@@ -1,0 +1,12 @@
+
+
+# The data read from the file can then be fed to the Ansible playbook as a variable.
+
+---
+- hosts: localhost
+  vars:
+    data: "{{ lookup('file', './test-file.txt') }}"
+  tasks:
+    - debug: msg="File contents {{ data }}"
+                                        
+# read data off a local file, test-file.txt, from the playbook’s root directory into a data variable. This variable is then fed to the task : debug module, which uses the data variable to print it onscreen.                                        
