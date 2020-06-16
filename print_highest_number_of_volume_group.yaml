@@ -1,0 +1,9 @@
+ debug:
+        var: item
+      with_items:
+        - "{{ ansible_lvm.vgs }}"
+   - shell: "{{ ansible_lvm.lvs | select('match', '^vg[0-9]+') | list | sort | last }}"
+      register: highest
+
+    - debug:
+        var: highest.stdout
